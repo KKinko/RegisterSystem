@@ -1,0 +1,11 @@
+﻿@page
+@model RegisterSystem.Pages.Party.EventsCiviliansPage
+@using RegisterSystem.Pages.Extensions
+
+@{
+    Layout = "_Create";
+}
+<body>
+    @Html.MyEditorFor(x => x.Item.Id)
+    <partial name= "_EditEventCivilian"/>
+</body>

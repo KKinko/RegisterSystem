@@ -1,0 +1,75 @@
+﻿@page
+@using RegisterSystem.Facade.Party
+@model RegisterSystem.Pages.Party.EventsPage
+@{
+    Layout = "_Details";
+    var columnsCiv = new[] { 
+        nameof(CivilianView.FirstName),
+        nameof(CivilianView.LastName),
+        nameof(CivilianView.IdCode)
+    };
+    var columnsCom = new[] { 
+        nameof(CompanyView.CompanyName),
+        nameof(CompanyView.RegisterCode)
+    };
+    object? getValue<T>(string propertyname, T item) {
+        var pi = typeof(T).GetProperty(propertyname);
+        return pi?.GetValue(item);
+    }
+}
+
+<Body>
+    <partial name= "_ShowEvent"/>
+
+<br>
+    <h4>Osavõtjad</h4>
+<br>
+
+   <table class="table">
+    <thead>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Civilians.Value) {
+            <tr>
+                @foreach (var name in columnsCiv) {
+                    <td>
+                    @Html.Raw(getValue(name, item))
+                    </td>@*
+                    @Html.MyViewerFor(x => x.Item.EventId,  Model.EventName(Model.Item.EventId))*@
+                }
+                <td>
+                    <a asp-page="/Civilians/Details" 
+                    asp-page-handler="Details" 
+                    asp-route-id="@item.Id"
+                    >Vaata</a>&nbsp;
+                    <a asp-page="/EventsCivilians/Delete" 
+                    asp-page-handler="Delete" 
+                    asp-route-id="@item.Id"
+                    >Kustuta</a>
+                </td>
+                </tr>
+        }
+        @foreach (var item in Model.Companies.Value) {
+            <tr>
+                @foreach (var name in columnsCom) {
+                    <td>
+                    @Html.Raw(getValue(name, item))
+                    </td>
+                }
+                <td>
+                    <a asp-page="/Companies/Details" 
+                    asp-page-handler="Details" 
+                    asp-route-id="@item.Id"
+                    >Vaata</a>&nbsp;
+                    <a asp-page="/EventsCompanies/Delete" 
+                    asp-page-handler="Delete" 
+                    asp-route-id="@item.Id"
+                    >Kustuta</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+
+</Body>

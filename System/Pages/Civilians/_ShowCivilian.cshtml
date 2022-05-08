@@ -1,0 +1,8 @@
+﻿@model RegisterSystem.Pages.Party.CiviliansPage
+@using RegisterSystem.Pages.Extensions
+
+@Html.MyViewerFor(x => x.Item.FirstName)
+@Html.MyViewerFor(x => x.Item.LastName)
+@Html.MyViewerFor(x => x.Item.IdCode)
+@Html.MyViewerFor(x => x.Item.Payment, Model.PaymentDescription(Model.Item.Payment))
+@Html.MyViewerFor(x => x.Item.Information)

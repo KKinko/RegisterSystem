@@ -1,0 +1,8 @@
+﻿@model RegisterSystem.Pages.Party.CompaniesPage
+@using RegisterSystem.Pages.Extensions
+
+@Html.MyEditorFor(x => x.Item.CompanyName)
+@Html.MyEditorFor(x => x.Item.RegisterCode)
+@Html.MyEditorFor(x => x.Item.Participants)
+@Html.MyDropDownFor(x => x.Item.Payment, RegisterSystem.Pages.Party.CompaniesPage.Payments)
+@Html.MyEditorFor(x => x.Item.Information)

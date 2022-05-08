@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["SubTitle"] = Model?.GetType()?.Name?.Replace("Page", string.Empty) ?? "Unspecified";
+    ViewData["Title"] = "Details";
+    Layout = "_Layout";
+    var itemId = Model?.ItemId?? string.Empty;  
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>@ViewData["SubTitle"]</h4>
+    <hr />
+    @RenderBody()
+
+</div>

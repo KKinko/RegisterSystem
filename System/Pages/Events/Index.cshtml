@@ -1,0 +1,67 @@
+﻿@page
+@model RegisterSystem.Pages.Party.EventsPage
+@using RegisterSystem.Pages.Extensions
+
+@{  ViewData["Title"] = "Avaleht"; }
+
+<h3>@ViewData["Title"]</h3>
+
+<div class="modal-body row">
+<div class="col-md-6">
+<h3>Tulevased Üritused</h3>
+<table class="table">  
+<tbody>
+@foreach (var item in Model.FutureEvents) {
+<tr>
+   <td><a style="text-decoration:none;" 
+        asp-page="./Details" 
+        asp-page-handler="Details" 
+        asp-route-id="@item.Id">
+        @Html.DisplayFor(modelItem => item.EventName)</a> </td>
+   <td> @Html.DisplayFor(modelItem => item.Time)          </td>
+   <td> @Html.DisplayFor(modelItem => item.Place)         </td>
+   <td>
+       <a asp-page="./Delete"
+       asp-page-handler="Delete"
+       asp-route-id="@item.Id"
+       style="text-decoration:none;"
+       >Kustuta</a><br>
+       <a asp-page="./Create"
+       asp-page-handler="Create"
+       asp-route-id="@item.Id"
+       style="text-decoration:none;"
+       >Lisa osaleja</a>
+   </td>
+   </tr>
+}
+</tbody>
+</table>
+<p><a asp-page="Create" 
+    asp-page-handler="Create"
+    style="text-decoration:none;" 
+    >Lisa Üritus</a> </p>
+</div>
+<div class="col-md-6">
+    <h3 >Toimunud Üritused</h3>
+    <table class="table">  
+ <tbody>
+@foreach (var item in Model.PastEvents) {
+<tr>
+   <td><a style="text-decoration:none;" 
+       asp-page="./Details" 
+       asp-page-handler="Details" 
+       asp-route-id="@item.Id"
+       >@Html.DisplayFor(modelItem => item.EventName)</a> </td>
+   <td> @Html.DisplayFor(modelItem => item.Time)          </td>
+   <td> @Html.DisplayFor(modelItem => item.Place)         </td>
+   <td>
+   </td>
+   </tr>
+}
+</tbody>
+</table>
+</div>
+</div>
+
+
+

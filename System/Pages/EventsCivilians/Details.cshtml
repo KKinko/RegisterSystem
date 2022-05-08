@@ -1,0 +1,45 @@
+﻿@page
+@using RegisterSystem.Facade.Party
+@model RegisterSystem.Pages.Party.EventsCiviliansPage
+
+
+@{
+    Layout = "_Details";
+    //var columns = new[] { 
+    //    nameof(CurrencyView.Code)
+    //    , nameof(CurrencyView.Name)
+    //    , nameof(CurrencyView.Description)
+    //};
+    //object? getValue<T>(string propertyname, T item) {
+    //    var pi = typeof(T).GetProperty(propertyname);
+    //    return pi?.GetValue(item);
+    //}
+}
+
+<Body>
+    <partial name= "_ShowEventCivilian"/>
+
+@*<br>
+    <h4>Currencies</h4>
+<br>
+
+    <table class="table">
+    <thead>
+    <tr>
+        @foreach (var name in columns) { <td> @Html.Raw(name) </td> }
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Currencies) {
+            <tr>
+                @foreach (var name in columns) {
+                    <td>
+                    @Html.Raw(getValue(name, item))
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+    </table>*@
+
+</Body>

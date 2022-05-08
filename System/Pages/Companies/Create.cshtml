@@ -1,0 +1,11 @@
+﻿@page
+@model RegisterSystem.Pages.Party.CompaniesPage
+@using RegisterSystem.Pages.Extensions
+
+@{
+    Layout = "_Create";
+}
+<body>
+    @Html.MyEditorFor(x => x.Item.Id)
+    <partial name= "_EditCompany"/>
+</body>

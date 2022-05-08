@@ -1,0 +1,5 @@
+﻿@model RegisterSystem.Pages.Party.EventsCompaniesPage
+@using RegisterSystem.Pages.Extensions
+
+@Html.MyDropDownFor(x => x.Item.EventId, Model.Events)
+@Html.MyDropDownFor(x => x.Item.CompanyId, Model.Companies)

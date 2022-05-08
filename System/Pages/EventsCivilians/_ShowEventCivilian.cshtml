@@ -1,0 +1,5 @@
+﻿@model RegisterSystem.Pages.Party.EventsCiviliansPage
+@using RegisterSystem.Pages.Extensions
+
+@Html.MyViewerFor(x => x.Item.EventId,  Model.EventName(Model.Item.EventId))
+@Html.MyViewerFor(x => x.Item.CivilianId, Model.CivilianName(Model.Item.CivilianId))
